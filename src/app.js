@@ -35,8 +35,14 @@ function showWeatherTemprature(response) {
   weatherElement.innerHTML = response.data.weather[0].main;
   let dayElement = document.querySelector("#day");
   dayElement.innerHTML = formatDate(response.data.dt * 1000);
+  let iconElemnent = document.querySelector("#icon");
+  iconElemnent.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconElemnent.setAttribute("alt", response.data.weather[0].description);
 }
-let city = "behshahr";
+let city = "seattle";
 let apiKey = `c8784affc7f48d97a3ffacdb8dec2d4c`;
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
