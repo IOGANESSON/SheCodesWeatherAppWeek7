@@ -32,23 +32,22 @@
                 alt="sunny"
               />
               <div class="temperature">
-                <strong class="mainTemp"></strong>
+                <strong class="mainTemp" id="mainTemp"></strong>
                 <div class="units">C°|F°</div>
               </div>
             </div>
             <div class="col-3">
               <ul class="details">
-                <li>precipitation: 2%</li>
-                <li>humidity: 81%</li>
-                <li>wind: 16%</li>
+                <li>humidity: <span id="humidity"></span>%</li>
+                <li>wind: <span id="wind"></span> %</li>
               </ul>
             </div>
 
             <div class="col-6" dir="rtl">
               <ul class="date">
-                <li><h1>Paris</h1></li>
-                <li>Monday 20:00</li>
-                <li>Clear</li>
+                <li><h1 id="city"></h1></li>
+                <li id="day"></li>
+                <li id="weather"></li>
               </ul>
             </div>
           </div>
