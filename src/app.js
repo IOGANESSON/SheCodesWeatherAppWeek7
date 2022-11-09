@@ -42,8 +42,16 @@ function showWeatherTemprature(response) {
   );
   iconElemnent.setAttribute("alt", response.data.weather[0].description);
 }
-let city = "seattle";
-let apiKey = `c8784affc7f48d97a3ffacdb8dec2d4c`;
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+function search(city) {
+  let apiKey = `c8784affc7f48d97a3ffacdb8dec2d4c`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showWeatherTemprature);
+}
+function handlesubmit(event) {
+  event.preventDefault();
+  let cityInput = document.querySelector("#city-input");
+  search(cityInput.value);
+}
 
-axios.get(apiUrl).then(showWeatherTemprature);
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", handlesubmit);
