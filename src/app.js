@@ -25,8 +25,9 @@ function showWeatherTemprature(response) {
   console.log(response.data);
   let cityElement = document.querySelector("#city");
   cityElement.innerHTML = response.data.name;
+  celsiusTemperature = response.data.main.temp;
   let temperatureElement = document.querySelector("#mainTemp");
-  temperatureElement.innerHTML = Math.round(response.data.main.temp);
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
   let humidityElement = document.querySelector("#humidity");
   humidityElement.innerHTML = response.data.main.humidity;
   let windelement = document.querySelector("#wind");
@@ -52,6 +53,26 @@ function handlesubmit(event) {
   let cityInput = document.querySelector("#city-input");
   search(cityInput.value);
 }
-
+function displayFahrenheitTemperature(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#mainTemp");
+  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+  fahrenheitLink.classList.add("active");
+  celsiustLink.classList.remove("active");
+}
+function displayCelsiusTemperature(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#mainTemp");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+  fahrenheitLink.classList.remove("active");
+  celsiustLink.classList.add("active");
+}
+let celsiusTemperature = null;
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handlesubmit);
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
+let celsiustLink = document.querySelector("#celsius-link");
+celsiustLink.addEventListener("click", displayCelsiusTemperature);
+search("oslo");

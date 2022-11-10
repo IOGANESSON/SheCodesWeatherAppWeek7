@@ -46,3 +46,16 @@ ul {
   margin-bottom: 20px;
   left: 30px;
 }
+.temperature .active {
+  color: #9aa0a6;
+  cursor: default;
+  text-decoration: none;
+}
+.temperature.active:hover {
+  text-decoration: none;
+  cursor: default;
+}
+a {
+  text-decoration: none;
+  cursor: default;
+}
