@@ -20,6 +20,36 @@ function formatDate(timestamp) {
   let day = days[date.getDay()];
   return (day = `${day} ${hours}:${minutes}`);
 }
+function displayForcast() {
+  let forcastElement = document.querySelector("#weather-forcast");
+
+  let days = ["Sun", "Mon", "Thu", "Wed"];
+
+  let forcastHTML = `<div class="row">`;
+
+  days.forEach(function (day) {
+    forcastHTML =
+      forcastHTML +
+      `
+      
+      <div class="row forcast">
+       <div class="col-2">
+        <div class="weather-forcast-date">${day}</div>
+         <div class="weather-forcast-image">
+      <img
+        src="https://ssl.gstatic.com/onebox/weather/48/partly_cloudy.png"
+          alt=""
+      />
+    </div>
+    <span class="weather-forcast-max">14°</span>
+    <span class="weather-forcast-min">12°</span>
+  </div>
+</div></div>`;
+  });
+  forcastHTML = forcastHTML + `</div>`;
+  forcastElement.innerHTML = forcastHTML;
+  console.log(forcastHTML);
+}
 
 function showWeatherTemprature(response) {
   console.log(response.data);
@@ -76,3 +106,4 @@ fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 let celsiustLink = document.querySelector("#celsius-link");
 celsiustLink.addEventListener("click", displayCelsiusTemperature);
 search("oslo");
+displayForcast();
