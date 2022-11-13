@@ -20,37 +20,28 @@ function formatDate(timestamp) {
   let day = days[date.getDay()];
   return (day = `${day} ${hours}:${minutes}`);
 }
-function displayForcast() {
-  let forcastElement = document.querySelector("#weather-forcast");
-
-  let days = ["Sun", "Mon", "Thu", "Wed"];
-
-  let forcastHTML = `<div class="row">`;
-
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let days = ["Sat", "Sun", "Mon", "Tue", "Wed", "Thu", "Fri"];
+  let forecastHTML = `<div class="row">`;
   days.forEach(function (day) {
-    forcastHTML =
-      forcastHTML +
-      `
-      
-      <div class="row forcast">
-       <div class="col-2">
-        <div class="weather-forcast-date">${day}</div>
-         <div class="weather-forcast-image">
-      <img
-        src="https://ssl.gstatic.com/onebox/weather/48/partly_cloudy.png"
-          alt=""
-      />
-    </div>
-    <span class="weather-forcast-max">14°</span>
-    <span class="weather-forcast-min">12°</span>
-  </div>
-</div></div>`;
+    forecastHTML =
+      forecastHTML +
+      `<div class="col-2">
+                    <div class="weather-forecast-date">${day}</div>
+                    <div class="weather-forecast-image">
+                      <img
+                        src="https://ssl.gstatic.com/onebox/weather/64/sunny.png"
+                        alt=""
+                      />
+                    </div>
+                    <span class="weather-forecast-max">14</span>
+                    <span class="weather-forecast-min">12 </span>
+                  </div>`;
   });
-  forcastHTML = forcastHTML + `</div>`;
-  forcastElement.innerHTML = forcastHTML;
-  console.log(forcastHTML);
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
 }
-
 function showWeatherTemprature(response) {
   console.log(response.data);
   let cityElement = document.querySelector("#city");
@@ -106,4 +97,4 @@ fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 let celsiustLink = document.querySelector("#celsius-link");
 celsiustLink.addEventListener("click", displayCelsiusTemperature);
 search("oslo");
-displayForcast();
+displayForecast();

@@ -66,14 +66,14 @@ a {
   text-decoration: none;
   cursor: default;
 }
-.forcast {
+.forecast {
   text-align: center;
   padding-bottom: 20px;
   font-size: 13px;
 }
-.weather-forcast-min {
+.weather-forecast-min {
   opacity: 0.6;
 }
-.weather-forcast-date {
+.weather-forecast-date {
   font-size: medium;
 }
