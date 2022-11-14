@@ -9,16 +9,16 @@ function formatDate(timestamp) {
     minutes = `0${minutes}`;
   }
   let days = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
+    "sunday",
+    "monday",
+    "tuesday",
+    "wednesday",
+    "thursday",
+    "friday",
+    "saturday",
   ];
   let day = days[date.getDay()];
-  return (day = `${day} ${hours}:${minutes}`);
+  return (day = ` Last updated at ${day} ${hours}:${minutes}`);
 }
 function formatDay(timestamp) {
   let date = new Date(timestamp * 1000);
@@ -84,6 +84,7 @@ function showWeatherTemprature(response) {
   );
   iconElemnent.setAttribute("alt", response.data.weather[0].description);
   getForecast(response.data.coord);
+  console.log(response.data);
 }
 function search(city) {
   let apiKey = `c8784affc7f48d97a3ffacdb8dec2d4c`;
